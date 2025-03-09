@@ -1,0 +1,85 @@
+ls -ltr
+-l → Long format (detailed view).
+-t → Sorts by modification time (newest files appear last).
+-r → Reverses the order (oldest first).
+
+
+ls -ld
+-l → Long listing format (shows permissions, owner, size, etc.).
+-d → Shows only the directory’s details, not its contents.
+
+Basic Linux Commands
+pwd - Prints the current working directory.
+ls - Lists files and directories.
+cd <directory> - Changes the current directory.
+mkdir <directory> - Creates a new directory.
+rmdir <directory> - Removes an empty directory.
+rm <file> - Deletes a file.
+rm -r <directory> - Deletes a directory and its contents recursively.
+touch <file> - Creates an empty file or updates its timestamp.
+cp <source> <destination> - Copies files or directories.
+mv <source> <destination> - Moves or renames files or directories.
+cat <file> - Displays the content of a file.
+nano <file> - Opens a file in the Nano text editor.
+vim <file> - Opens a file in the Vim text editor.
+echo "text" > <file> - Writes text into a file (overwrites content).
+echo "text" >> <file> - Appends text to a file.
+head -n <number> <file> - Displays the first n lines of a file.
+tail -n <number> <file> - Displays the last n lines of a file.
+grep "<pattern>" <file> - Searches for a pattern in a file.
+find <path> -name "<filename>" - Searches for a file by name in a directory.
+df -h - Shows disk space usage in a human-readable format.
+free -h - Shows memory usage.
+whoami - Displays the current logged-in user.
+uname -a - Shows system information.
+uptime - Displays system uptime and load average.
+history - Displays command history.
+clear - Clears the terminal screen.
+reboot - Reboots the system.
+shutdown -h now - Shuts down the system immediately.
+
+
+Intermediate Linux Commands
+du -sh <directory> - Shows the size of a directory.
+top - Displays real-time system processes.
+htop - Interactive process monitoring (better than top).
+ps aux - Lists running processes with details.
+kill <PID> - Terminates a process by its process ID.
+killall <process-name> - Kills all processes with a specific name.
+pkill <pattern> - Kills processes matching a pattern.
+chmod <permissions> <file> - Changes file permissions.
+chown <user>:<group> <file> - Changes file ownership.
+tar -cvf <archive.tar> <directory> - Creates a tar archive of a directory.
+tar -xvf <archive.tar> - Extracts a tar archive.
+zip <archive.zip> <file> - Compresses a file into a zip archive.
+unzip <archive.zip> - Extracts files from a zip archive.
+wget <URL> - Downloads a file from the internet.
+curl -O <URL> - Downloads a file using curl.
+scp <file> user@remote:/path/ - Securely copies a file to a remote server.
+rsync -av <source> <destination> - Synchronizes files between locations.
+ifconfig - Displays network interfaces and IP addresses.
+ip a - Shows network interfaces and IPs (modern replacement for ifconfig).
+ping <hostname/IP> - Checks network connectivity.
+netstat -tulnp - Lists active network connections.
+ss -tulnp - Displays active network sockets (alternative to netstat).
+alias <name>='command' - Creates a shortcut for a command.
+unalias <name> - Removes an alias.
+crontab -l - Lists scheduled cron jobs.
+crontab -e - Edits scheduled cron jobs.
+systemctl status <service> - Checks the status of a service.
+systemctl start <service> - Starts a service.
+systemctl stop <service> - Stops a service.
+systemctl restart <service> - Restarts a service.
+systemctl enable <service> - Enables a service on boot.
+systemctl disable <service> - Disables a service from booting.
+journalctl -xe - Shows detailed system logs.
+dmesg - Displays system boot messages.
+lsblk - Shows information about disk partitions.
+fdisk -l - Lists all disk partitions.
+mount <device> <mount-point> - Mounts a filesystem.
+umount <mount-point> - Unmounts a filesystem.
+passwd - Changes the user password.
+useradd <username> - Creates a new user.
+usermod -aG <group> <user> - Adds a user to a group.
+deluser <username> - Deletes a user.
+groupadd <group> - Creates a new group.

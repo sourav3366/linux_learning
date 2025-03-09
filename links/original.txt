@@ -1,0 +1,84 @@
+Soft Link and Hard Link in Linux
+In Linux, links are pointers to files. There are two types of links:
+
+Hard Link
+Soft Link (Symbolic Link)
+1. Hard Link
+A hard link is another name for a file. It shares the same inode number as the original file, meaning they are essentially the same file with different names. Changes made to either the original file or the hard link are reflected in both.
+
+Key Features of Hard Links
+✔️ Points to the same inode as the original file.
+✔️ The file remains even if the original file is deleted.
+✔️ Changes in the hard link affect the original file and vice versa.
+✔️ Cannot be created for directories.
+✔️ Only works within the same filesystem.
+
+How to Create a Hard Link?
+
+- ln original.txt hardlink.txt
+
+✅ Now hardlink.txt is a hard link to original.txt.
+✅ Both files share the same inode and disk space.
+
+Check Inode Number
+Use ls -i to verify that both files have the same inode number:
+
+ls -li original.txt hardlink.txt
+
+Deleting the Original File
+
+rm original.txt
+
+✅ The hard link (hardlink.txt) still exists, and the data is safe.
+
+2. Soft Link (Symbolic Link)
+A soft link (symbolic link) is similar to a shortcut. It points to the original file's path rather than its inode.
+
+Key Features of Soft Links
+✔️ Stores the path of the target file.
+✔️ If the original file is deleted, the soft link becomes broken (dangling link).
+✔️ Can be created across different filesystems.
+✔️ Can be created for directories.
+
+How to Create a Soft Link?
+
+ln -s original.txt softlink.txt
+
+✅ softlink.txt now points to original.txt.
+
+Checking the Soft Link
+
+ls -l
+
+You will see:
+
+lrwxrwxrwx  1 user user   12 Mar 9 14:30 softlink.txt -> original.txt
+
+✅ -> original.txt indicates a symbolic link.
+
+Deleting the Original File
+
+rm original.txt
+
+Now, softlink.txt becomes broken:
+
+ls -l
+
+It will still show the link, but trying to access softlink.txt will result in an error:
+
+cat softlink.txt
+
+# Output: No such file or directory
+
+Differences Between Hard Link and Soft Link
+Feature	                          Hard Link	                                    Soft Link
+Inode	                        Same as original	                        Different from original
+Storage	                        Same data blocks as the original	        Stores only the file path
+Works across filesystems?	        ❌ No	                                    ✅ Yes
+Works for directories?	            ❌ No                                   	    ✅ Yes
+If the original file is deleted?	✅ Still accessible	                ❌ Becomes a broken link
+
+
+When to Use What?
+Use Hard Links when you want a backup file that remains even if the original is deleted.
+Use Soft Links when you need a shortcut to a file, especially across filesystems or for directories.
